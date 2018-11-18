@@ -1,0 +1,60 @@
+#################################################################
+#                                                               #
+#                    Packages/ituran 
+#  https://github.com/dimagoltsman/ha-custom-component-ituran   #
+#                                                               #
+#                                                               #
+#################################################################
+
+#################################################################
+#                                                               #
+#                          Customize                            #
+#                                                               #
+#################################################################
+homeassistant:
+  customize:
+    ituran.skodakodiak:
+      friendly_name: איתוראן
+      icon: mdi:car-connected
+      assumed_state: false
+ 
+
+#################################################################
+#                                                               #
+#                          frontend                             #
+#                                                               #
+#################################################################
+frontend:
+  extra_html_url:
+   - /local/custom_ui/state-card-ituran.html
+
+
+####################################################
+#                                                  #
+#                      ituran                      #
+#                                                  #
+####################################################
+ituran:
+  skodakodiak:
+    name: Skoda
+    username: !secret skodakodiaq_username
+    password: !secret skodakodiaq_password
+
+#################################################################
+#                                                               #
+#                           Groups                              #
+#                                                               #
+#################################################################
+group:
+  skoda ituran:
+    name: ituran
+    view: no
+    entities:
+      - ituran.skodakodiak
+
+#################################################################
+#                                                               #
+#                         Automations                           #
+#                                                               #
+#################################################################
+# automation:
